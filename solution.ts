@@ -16,6 +16,7 @@ function formatValue(value: string | number | boolean): string | number | boolea
 
 }
 
+
 function getLength(value: string | unknown []): number {
   if((typeof value === "string") || (Array.isArray(value))){
     return value.length;
@@ -39,6 +40,17 @@ class Person {
   }
 }
 
+const person1 = new Person('John Doe', 30);
+
+const person2 = new Person('Alice', 25);
+
+
+const books = [
+  { title: 'Book A', rating: 4.5 },
+  { title: 'Book B', rating: 3.2 },
+  { title: 'Book C', rating: 5.0 },
+];
+
 type Item = {
   title: string;
   rating: number;
@@ -46,6 +58,23 @@ type Item = {
 
 function filterByRating(items: Item[]){
   return items.filter(item => item.rating >= 4);
+}
+
+const users = [
+  { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
+  { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
+  { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
+];
+
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}
+
+function filterActiveUsers (users: User[]){
+  return users.filter(user => user.isActive === true);
 }
 
 
