@@ -77,6 +77,29 @@ function filterActiveUsers (users: User[]){
   return users.filter(user => user.isActive === true);
 }
 
+const myBook: Book = {
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  publishedYear: 1925,
+  isAvailable: true,
+};
+
+interface Book{
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+function printBookDetails(book: Book): void {
+  const availiablity = book.isAvailable ? 'Yes' : 'No';
+  (`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable}`);
+}
+
+printBookDetails(myBook);
+
+
+
 
 
 
