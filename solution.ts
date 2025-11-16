@@ -12,10 +12,16 @@ function formatValue(value: string | number | boolean): string | number | boolea
   else if (typeof value === "number") {
     return value * 10;
   }
-  else return !value;
+   return !value;
 
 }
 
+function getLength(value: string | unknown []): number {
+  if((typeof value === "string") || (Array.isArray(value))){
+    return value.length;
+  }
+  return 0;
+}
 
 
 
