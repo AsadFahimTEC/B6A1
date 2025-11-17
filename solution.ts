@@ -1,9 +1,3 @@
-/*
-- This solution.ts file is an example; replace it with your own code.
-- Use the same function names and parameter names as in the problem statement.
-- Write only the code inside the function bodies and return the result.
-- Do not use any console.log statements or comments.
-*/
 
 function formatValue(value: string | number | boolean): string | number | boolean {
   if (typeof value === "string") {
@@ -101,7 +95,7 @@ printBookDetails(myBook);
 
 function getUniqueValues(array1: (number | string)[], array2: (number | string)[]): (number | string)[] {
   const result: (number | string)[] = [];
-  const combined = [array1 , array2];
+  const combined = [array1, array2];
 
   for (let a = 0; a < combined.length; a++) {
     const currentArray = combined[a];
@@ -126,10 +120,25 @@ function getUniqueValues(array1: (number | string)[], array2: (number | string)[
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
 
-console.log(getUniqueValues(array1, array2));
+type Product = {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
 
+function calculateTotalPrice(products: Product[]): number {
+  return products.reduce((total, product) => {
+    let productTotal = product.price * product.quantity;
+    if (product.discount) {
+      productTotal -= (productTotal * product.discount) / 100;
+    }
+    return total + productTotal;
+  }, 0);
+}
 
-
-
-
-
+const products = [
+  { name: 'Pen', price: 10, quantity: 2 },
+  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
