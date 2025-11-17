@@ -12,13 +12,13 @@ function formatValue(value: string | number | boolean): string | number | boolea
   else if (typeof value === "number") {
     return value * 10;
   }
-   return !value;
+  return !value;
 
 }
 
 
-function getLength(value: string | unknown []): number {
-  if((typeof value === "string") || (Array.isArray(value))){
+function getLength(value: string | unknown[]): number {
+  if ((typeof value === "string") || (Array.isArray(value))) {
     return value.length;
   }
   return 0;
@@ -30,7 +30,7 @@ class Person {
   age: number;
 
   constructor(name: string,
-  age: number){
+    age: number) {
     this.name = name;
     this.age = age;
   }
@@ -56,7 +56,7 @@ type Item = {
   rating: number;
 }
 
-function filterByRating(items: Item[]){
+function filterByRating(items: Item[]) {
   return items.filter(item => item.rating >= 4);
 }
 
@@ -73,7 +73,7 @@ type User = {
   isActive: boolean;
 }
 
-function filterActiveUsers (users: User[]){
+function filterActiveUsers(users: User[]) {
   return users.filter(user => user.isActive === true);
 }
 
@@ -84,7 +84,7 @@ const myBook: Book = {
   isAvailable: true,
 };
 
-interface Book{
+interface Book {
   title: string;
   author: string;
   publishedYear: number;
@@ -99,7 +99,34 @@ function printBookDetails(book: Book): void {
 printBookDetails(myBook);
 
 
+function getUniqueValues(array1: (number | string)[], array2: (number | string)[]): (number | string)[] {
+  const result: (number | string)[] = [];
+  const combined = [array1 , array2];
 
+  for (let a = 0; a < combined.length; a++) {
+    const currentArray = combined[a];
+
+    for (let i = 0; i < currentArray.length; i++) {
+      let found = false;
+
+      for (let j = 0; j < result.length; j++) {
+        if (result[j] === currentArray[i]) {
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        result[result.length] = currentArray[i];
+      }
+    }
+  }
+  return result;
+}
+
+const array1 = [1, 2, 3, 4, 5];
+const array2 = [3, 4, 5, 6, 7];
+
+console.log(getUniqueValues(array1, array2));
 
 
 
