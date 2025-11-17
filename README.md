@@ -1,9 +1,8 @@
 ## 🎯 Interview Questions - Blog Task
 
-
 1. What are some differences between interfaces and types in TypeScript?
-Answer:
 
+Answer:
 ১. Interface মূলত অবজেক্টকে বর্ণ্না করতে ব্যবহার করা হয় আর Type বেশী নমনীয়।
 
 Interface মূলত Object এর গঠন বর্ণ্না করতে ব্যবহার করা হয়ে থাকে।
@@ -100,9 +99,25 @@ type Result = number | string | boolean;
 
 
 2. What is the use of the `keyof` keyword in TypeScript? Provide an example.
-3. Explain the difference between `any`, `unknown`, and `never` types in TypeScript.
-4. What is the use of `enums` in TypeScript? Provide an example of a numeric and string enum.
-5. Provide an example of using **union** and **intersection** types in TypeScript.
+
+Answer:
+keyof মূলত object type এর key গুলোকে মূলত union type হিসেবে return করে থাকে, অর্থাৎ একটি object এ যে property গুলো আছে keyof সেই নামগুলোকে type হিসেবে ধরে।
+
+Example:
+object type এর ক্ষেত্রে User type এর name, gender key এর জন্য string ধরনের এবং age key এর জন্য number ধরনের data সংজ্ঞায়িত করা হয়েছে।
+
+type User = {
+  name: string;
+  age: number;
+  gender: string;
+}
+
+এখন আমরা keyof User ব্যবহার করব।
+
+type UserKeys = keyof User;
+
+এখানে UserKeys হচ্ছে "name" | "age" | "gender" অর্থাৎ User type এ যে property গুলো আছে সেইগুলোই union type হিসেবে পাওয়া যায়।
 
 
+পরিশেষে আমরা বলতে পারি keyof keyword দিয়ে যে কোনো type property এর নামকে এক ধরনের লিস্ট বা union type হিসেবে পাওয়া যায় যা কোডকে নিরাপদ করে থাকে।
 ---
