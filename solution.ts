@@ -30,20 +30,9 @@ class Person {
   }
 
   getDetails(): string {
-    return `Name: ${this.name}, Age: ${this.age}`;
+    return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
-
-const person1 = new Person('John Doe', 30);
-
-const person2 = new Person('Alice', 25);
-
-
-const books = [
-  { title: 'Book A', rating: 4.5 },
-  { title: 'Book B', rating: 3.2 },
-  { title: 'Book C', rating: 5.0 },
-];
 
 type Item = {
   title: string;
@@ -53,12 +42,6 @@ type Item = {
 function filterByRating(items: Item[]) {
   return items.filter(item => item.rating >= 4);
 }
-
-const users = [
-  { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-  { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
-  { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-];
 
 type User = {
   id: number;
@@ -71,13 +54,6 @@ function filterActiveUsers(users: User[]) {
   return users.filter(user => user.isActive === true);
 }
 
-const myBook: Book = {
-  title: 'The Great Gatsby',
-  author: 'F. Scott Fitzgerald',
-  publishedYear: 1925,
-  isAvailable: true,
-};
-
 interface Book {
   title: string;
   author: string;
@@ -87,10 +63,8 @@ interface Book {
 
 function printBookDetails(book: Book): void {
   const availiablity = book.isAvailable ? 'Yes' : 'No';
-  (`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable}`);
+  console.log(`Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${book.isAvailable}`);
 }
-
-printBookDetails(myBook);
 
 
 function getUniqueValues(array1: (number | string)[], array2: (number | string)[]): (number | string)[] {
@@ -117,9 +91,6 @@ function getUniqueValues(array1: (number | string)[], array2: (number | string)[
   return result;
 }
 
-const array1 = [1, 2, 3, 4, 5];
-const array2 = [3, 4, 5, 6, 7];
-
 type Product = {
   name: string;
   price: number;
@@ -136,9 +107,3 @@ function calculateTotalPrice(products: Product[]): number {
     return total + productTotal;
   }, 0);
 }
-
-const products = [
-  { name: 'Pen', price: 10, quantity: 2 },
-  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
-  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
-];
